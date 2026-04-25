@@ -299,9 +299,15 @@ footer{padding:64px 0 36px;background:var(--bg);border-top:1px solid var(--line)
 .fade-in.is-visible{opacity:1;transform:translateY(0)}
 
 /* ===================== RECENT WORK ===================== */
+.marquee-band{
+  background:var(--brand-navy);
+  padding:clamp(32px,5vw,56px) 0;
+  margin-top:clamp(28px,4vw,48px);
+  border-top:1px solid rgba(255,255,255,.06);
+  border-bottom:1px solid rgba(255,255,255,.06);
+}
 .marquee{
   position:relative;overflow:hidden;width:100%;
-  margin:clamp(24px,4vw,48px) 0 0;
   -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 6%,#000 94%,transparent 100%);
           mask-image:linear-gradient(90deg,transparent 0,#000 6%,#000 94%,transparent 100%);
 }
@@ -545,6 +551,7 @@ footer{padding:64px 0 36px;background:var(--bg);border-top:1px solid var(--line)
     </div>
   </div>
 
+  <div class="marquee-band">
   <div class="marquee" aria-hidden="true">
     <div class="marquee-track">
       <!-- Loop A -->
@@ -579,6 +586,7 @@ footer{padding:64px 0 36px;background:var(--bg);border-top:1px solid var(--line)
       <div class="marquee-item"><video autoplay muted loop playsinline preload="metadata" poster="https://res.cloudinary.com/dgjwvyjbu/video/upload/so_1,w_700,h_700,c_fill,q_auto,f_jpg/tpm/service-tiles/trim-7.jpg"><source src="https://res.cloudinary.com/dgjwvyjbu/video/upload/q_auto,f_auto,w_700,h_700,c_fill/tpm/service-tiles/trim-7.mp4" type="video/mp4"/></video></div>
       <div class="marquee-item"><img src="https://res.cloudinary.com/dgjwvyjbu/image/upload/q_auto,f_auto,w_700,h_700,c_fill,g_auto/tpm/portfolio/rodcliffe-modern-back.jpg" alt="" loading="lazy"/></div>
     </div>
+  </div>
   </div>
 
   <div class="container">
