@@ -230,17 +230,23 @@ h1,h2,h3,h4{font-family:'Manrope',sans-serif;font-weight:700;line-height:1.1;let
 .service-badge svg{width:14px;height:14px;color:#fff}
 
 /* ===================== PORTFOLIO ===================== */
-.portfolio{
-  background:linear-gradient(135deg,#0c1220 0%,#172040 100%);
+.portfolio{background:none;padding:0}
+.portfolio-top{
   position:relative;overflow:hidden;
+  background:linear-gradient(135deg,#0c1220 0%,#172040 100%);
+  padding:clamp(72px,10vw,140px) 0 clamp(48px,7vw,80px);
 }
-.portfolio::before{
+.portfolio-top::before{
   content:"";position:absolute;inset:0;pointer-events:none;z-index:0;
   background:
     radial-gradient(circle at 18% 25%, rgba(90,158,255,.12) 0%, transparent 50%),
     radial-gradient(circle at 82% 75%, rgba(163,211,255,.08) 0%, transparent 50%);
 }
-.portfolio > *{position:relative;z-index:1}
+.portfolio-top > *{position:relative;z-index:1}
+.portfolio-bottom{
+  background:var(--bg);
+  padding:clamp(56px,8vw,100px) 0 clamp(72px,10vw,140px);
+}
 .portfolio-grid{
   display:grid;grid-template-columns:1fr;gap:12px;
 }
@@ -547,6 +553,7 @@ footer{padding:64px 0 36px;background:var(--bg);border-top:1px solid var(--line)
 
 <!-- ========== RECENT WORK ========== -->
 <section class="section portfolio" id="portfolio">
+  <div class="portfolio-top">
   <div class="container">
     <div class="section-head fade-in">
       <span class="section-eyebrow">Recent Work</span>
@@ -590,7 +597,9 @@ footer{padding:64px 0 36px;background:var(--bg);border-top:1px solid var(--line)
       <div class="marquee-item"><img src="https://res.cloudinary.com/dgjwvyjbu/image/upload/q_auto,f_auto,w_700,h_700,c_fill,g_auto/tpm/portfolio/rodcliffe-modern-back.jpg" alt="" loading="lazy"/></div>
     </div>
   </div>
+  </div>
 
+  <div class="portfolio-bottom">
   <div class="container">
     <div class="featured-reel-wrap fade-in">
       <span class="featured-reel-label">Featured Reel</span>
@@ -608,6 +617,7 @@ footer{padding:64px 0 36px;background:var(--bg);border-top:1px solid var(--line)
         <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg>
       </a>
     </div>
+  </div>
   </div>
 </section>
 
