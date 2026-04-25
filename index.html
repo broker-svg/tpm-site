@@ -115,22 +115,24 @@ h1,h2,h3,h4{font-family:'Manrope',sans-serif;font-weight:700;line-height:1.1;let
   overflow:hidden;background:#000;
 }
 .hero-video{
-  position:absolute;inset:0;z-index:0;
+  position:absolute;inset:0;z-index:1;
   width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .8s ease;
 }
-.hero-video.is-ready{opacity:.7}
+.hero-video.is-ready{opacity:1}
 .hero-poster{
   position:absolute;inset:0;z-index:0;
   background:url('https://res.cloudinary.com/dgjwvyjbu/image/upload/q_auto,f_auto,w_1920/tpm/portfolio/gregory-scott-front.jpg') center/cover no-repeat;
   filter:brightness(.7);
+  transition:opacity .8s ease;
 }
+.hero.is-playing .hero-poster{opacity:0}
 .hero-overlay{
-  position:absolute;inset:0;z-index:1;pointer-events:none;
+  position:absolute;inset:0;z-index:2;pointer-events:none;
   background:
-    radial-gradient(ellipse at 50% 40%, transparent 0%, rgba(10,14,26,.3) 60%, rgba(10,14,26,.85) 100%),
-    linear-gradient(180deg, rgba(10,14,26,.4) 0%, rgba(10,14,26,.1) 30%, rgba(10,14,26,.85) 100%);
+    radial-gradient(ellipse at 50% 38%, rgba(10,14,26,.15) 0%, rgba(10,14,26,.5) 55%, rgba(10,14,26,.92) 100%),
+    linear-gradient(180deg, rgba(10,14,26,.55) 0%, rgba(10,14,26,.2) 30%, rgba(10,14,26,.9) 100%);
 }
-.hero-content{position:relative;z-index:2;text-align:center;padding:0 var(--pad);max-width:920px}
+.hero-content{position:relative;z-index:3;text-align:center;padding:0 var(--pad);max-width:920px}
 .hero-eyebrow{
   display:inline-flex;align-items:center;gap:8px;
   padding:6px 14px;border-radius:var(--r-pill);
@@ -153,7 +155,7 @@ h1,h2,h3,h4{font-family:'Manrope',sans-serif;font-weight:700;line-height:1.1;let
 .hero-actions .btn{padding:14px 26px;font-size:15px}
 
 .scroll-cue{
-  position:absolute;bottom:32px;left:50%;transform:translateX(-50%);z-index:3;
+  position:absolute;bottom:32px;left:50%;transform:translateX(-50%);z-index:4;
   display:flex;flex-direction:column;align-items:center;gap:8px;
   font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--text-muted);
 }
@@ -574,7 +576,11 @@ mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => 
 
 // ========== Hero video reveal as soon as it has any data ==========
 const heroVideo = document.getElementById('heroVideo');
-const showVideo = () => heroVideo.classList.add('is-ready');
+const heroSection = heroVideo.closest('.hero');
+const showVideo = () => {
+  heroVideo.classList.add('is-ready');
+  heroSection.classList.add('is-playing');
+};
 heroVideo.addEventListener('loadeddata', showVideo, {once:true});
 heroVideo.addEventListener('playing', showVideo, {once:true});
 // Failsafe: if anything stalls, reveal the video element anyway after 2.5s — beats a frozen blank state
