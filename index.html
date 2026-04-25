@@ -333,7 +333,7 @@ footer{padding:64px 0 36px;background:var(--bg);border-top:1px solid var(--line)
 }
 .marquee-item{
   flex:0 0 auto;
-  width:clamp(170px,22vw,260px);aspect-ratio:1/1;
+  width:clamp(150px,18vw,220px);aspect-ratio:1/1;
   border-radius:12px;overflow:hidden;
   background:var(--surface);border:1px solid var(--line);
   position:relative;
@@ -560,8 +560,20 @@ footer{padding:64px 0 36px;background:var(--bg);border-top:1px solid var(--line)
       <h2>From the field.</h2>
       <p class="lead">A continuous reel of stills and motion from recent shoots across Toronto, Vaughan and the GTA. Updated weekly.</p>
     </div>
+    <div class="featured-reel-wrap fade-in">
+      <span class="featured-reel-label">Featured Reel</span>
+      <div class="featured-reel">
+        <video autoplay muted loop playsinline preload="metadata" poster="https://res.cloudinary.com/dgjwvyjbu/image/upload/q_auto,f_auto,w_1600/tpm/portfolio/gregory-scott-front.jpg">
+          <source src="https://res.cloudinary.com/dgjwvyjbu/video/upload/q_auto,f_auto,w_1600/tpm/hero/showreel.mp4" type="video/mp4"/>
+        </video>
+      </div>
+    </div>
   </div>
 
+  
+  </div>
+
+  <div class="portfolio-bottom">
   <div class="marquee" aria-hidden="true">
     <div class="marquee-track">
       <!-- Loop A -->
@@ -597,18 +609,9 @@ footer{padding:64px 0 36px;background:var(--bg);border-top:1px solid var(--line)
       <div class="marquee-item"><img src="https://res.cloudinary.com/dgjwvyjbu/image/upload/q_auto,f_auto,w_700,h_700,c_fill,g_auto/tpm/portfolio/rodcliffe-modern-back.jpg" alt="" loading="lazy"/></div>
     </div>
   </div>
-  </div>
 
-  <div class="portfolio-bottom">
   <div class="container">
-    <div class="featured-reel-wrap fade-in">
-      <span class="featured-reel-label">Featured Reel</span>
-      <div class="featured-reel">
-        <video autoplay muted loop playsinline preload="metadata" poster="https://res.cloudinary.com/dgjwvyjbu/image/upload/q_auto,f_auto,w_1600/tpm/portfolio/gregory-scott-front.jpg">
-          <source src="https://res.cloudinary.com/dgjwvyjbu/video/upload/q_auto,f_auto,w_1600/tpm/hero/showreel.mp4" type="video/mp4"/>
-        </video>
-      </div>
-    </div>
+    
 
     <div class="recent-work-foot fade-in">
       <p class="recent-work-tagline">Every shoot we book lands here. New listings, new reels — week after week.</p>
