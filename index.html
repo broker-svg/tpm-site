@@ -116,9 +116,9 @@ h1,h2,h3,h4{font-family:'Manrope',sans-serif;font-weight:700;line-height:1.1;let
 }
 .hero-video{
   position:absolute;inset:0;z-index:0;
-  width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.2s ease;
+  width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .8s ease;
 }
-.hero-video.is-ready{opacity:.65}
+.hero-video.is-ready{opacity:.7}
 .hero-poster{
   position:absolute;inset:0;z-index:0;
   background:url('https://res.cloudinary.com/dgjwvyjbu/image/upload/q_auto,f_auto,w_1920/tpm/portfolio/gregory-scott-front.jpg') center/cover no-repeat;
@@ -237,8 +237,6 @@ h1,h2,h3,h4{font-family:'Manrope',sans-serif;font-weight:700;line-height:1.1;let
   aspect-ratio:4/3;background:var(--surface);
   border:1px solid var(--line);
 }
-.tile.tall{aspect-ratio:3/4}
-@media(max-width:599px){.tile.tall{aspect-ratio:4/3}}
 .tile img{
   width:100%;height:100%;object-fit:cover;
   transition:transform .8s cubic-bezier(.2,.8,.2,1);
@@ -353,8 +351,8 @@ footer{padding:64px 0 36px;background:var(--bg);border-top:1px solid var(--line)
 <!-- ========== HERO ========== -->
 <section class="hero" id="top">
   <div class="hero-poster"></div>
-  <video class="hero-video" id="heroVideo" autoplay muted loop playsinline preload="metadata" poster="https://res.cloudinary.com/dgjwvyjbu/image/upload/q_auto,f_auto,w_1920/tpm/portfolio/gregory-scott-front.jpg">
-    <source src="https://res.cloudinary.com/dgjwvyjbu/video/upload/q_auto,f_auto,w_1920/tpm/hero/showreel.mp4" type="video/mp4" />
+  <video class="hero-video" id="heroVideo" autoplay muted loop playsinline preload="auto" poster="https://res.cloudinary.com/dgjwvyjbu/image/upload/q_auto,f_auto,w_1920/tpm/portfolio/gregory-scott-front.jpg">
+    <source src="https://res.cloudinary.com/dgjwvyjbu/video/upload/tpm/hero/showreel.mp4" type="video/mp4" />
   </video>
   <div class="hero-overlay"></div>
   <div class="hero-content">
@@ -487,15 +485,15 @@ footer{padding:64px 0 36px;background:var(--bg);border-top:1px solid var(--line)
     </div>
 
     <div class="portfolio-grid">
-      <a href="#" class="tile tall fade-in"><img src="https://res.cloudinary.com/dgjwvyjbu/image/upload/q_auto,f_auto,w_900/tpm/portfolio/gregory-scott-front.jpg" alt="Gregory Scott Drive" loading="lazy" /><div class="tile-meta"><span class="cat">Exterior · Twilight</span><strong>Gregory Scott Dr · Vaughan</strong></div></a>
+      <a href="#" class="tile fade-in"><img src="https://res.cloudinary.com/dgjwvyjbu/image/upload/q_auto,f_auto,w_900/tpm/portfolio/gregory-scott-front.jpg" alt="Gregory Scott Drive" loading="lazy" /><div class="tile-meta"><span class="cat">Exterior · Twilight</span><strong>Gregory Scott Dr · Vaughan</strong></div></a>
       <a href="#" class="tile fade-in"><img src="https://res.cloudinary.com/dgjwvyjbu/image/upload/q_auto,f_auto,w_900/tpm/portfolio/imperial-court-sunset.jpg" alt="Imperial Court" loading="lazy" /><div class="tile-meta"><span class="cat">Exterior · Sunset</span><strong>Imperial Court · Vaughan</strong></div></a>
       <a href="#" class="tile fade-in"><img src="https://res.cloudinary.com/dgjwvyjbu/image/upload/q_auto,f_auto,w_900/tpm/portfolio/rodcliffe-modern-front.jpg" alt="Rodcliffe Road front" loading="lazy" /><div class="tile-meta"><span class="cat">Exterior · Twilight</span><strong>Rodcliffe Rd · Tottenham</strong></div></a>
       <a href="#" class="tile fade-in"><img src="https://res.cloudinary.com/dgjwvyjbu/image/upload/q_auto,f_auto,w_900/tpm/portfolio/rodcliffe-modern-back.jpg" alt="Rodcliffe Road back" loading="lazy" /><div class="tile-meta"><span class="cat">Exterior · Twilight</span><strong>Rodcliffe Rd · Tottenham</strong></div></a>
-      <a href="#" class="tile tall fade-in"><img src="https://res.cloudinary.com/dgjwvyjbu/image/upload/q_auto,f_auto,w_900/tpm/portfolio/viking-condo-aerial.jpg" alt="Viking Lane aerial" loading="lazy" /><div class="tile-meta"><span class="cat">Aerial</span><strong>Viking Ln · Etobicoke</strong></div></a>
+      <a href="#" class="tile fade-in"><img src="https://res.cloudinary.com/dgjwvyjbu/image/upload/q_auto,f_auto,w_900/tpm/portfolio/viking-condo-aerial.jpg" alt="Viking Lane aerial" loading="lazy" /><div class="tile-meta"><span class="cat">Aerial</span><strong>Viking Ln · Etobicoke</strong></div></a>
       <a href="#" class="tile fade-in"><img src="https://res.cloudinary.com/dgjwvyjbu/image/upload/q_auto,f_auto,w_900/tpm/portfolio/gregory-scott-aerial.jpg" alt="Gregory Scott aerial" loading="lazy" /><div class="tile-meta"><span class="cat">Aerial</span><strong>Gregory Scott Dr · Vaughan</strong></div></a>
       <a href="#" class="tile fade-in"><img src="https://res.cloudinary.com/dgjwvyjbu/image/upload/q_auto,f_auto,w_900/tpm/portfolio/gregory-scott-kitchen-1.jpg" alt="Gregory Scott kitchen" loading="lazy" /><div class="tile-meta"><span class="cat">Interior · Kitchen</span><strong>Gregory Scott Dr · Vaughan</strong></div></a>
       <a href="#" class="tile fade-in"><img src="https://res.cloudinary.com/dgjwvyjbu/image/upload/q_auto,f_auto,w_900/tpm/portfolio/gregory-scott-kitchen-2.jpg" alt="Gregory Scott kitchen alt" loading="lazy" /><div class="tile-meta"><span class="cat">Interior · Kitchen</span><strong>Gregory Scott Dr · Vaughan</strong></div></a>
-      <a href="#" class="tile tall fade-in"><img src="https://res.cloudinary.com/dgjwvyjbu/image/upload/q_auto,f_auto,w_900/tpm/portfolio/gregory-scott-living.jpg" alt="Gregory Scott living" loading="lazy" /><div class="tile-meta"><span class="cat">Interior · Living</span><strong>Gregory Scott Dr · Vaughan</strong></div></a>
+      <a href="#" class="tile fade-in"><img src="https://res.cloudinary.com/dgjwvyjbu/image/upload/q_auto,f_auto,w_900/tpm/portfolio/gregory-scott-living.jpg" alt="Gregory Scott living" loading="lazy" /><div class="tile-meta"><span class="cat">Interior · Living</span><strong>Gregory Scott Dr · Vaughan</strong></div></a>
       <a href="#" class="tile fade-in"><img src="https://res.cloudinary.com/dgjwvyjbu/image/upload/q_auto,f_auto,w_900/tpm/portfolio/gregory-scott-formal.jpg" alt="Gregory Scott formal living" loading="lazy" /><div class="tile-meta"><span class="cat">Interior · Formal</span><strong>Gregory Scott Dr · Vaughan</strong></div></a>
       <a href="#" class="tile fade-in"><img src="https://res.cloudinary.com/dgjwvyjbu/image/upload/q_auto,f_auto,w_900/tpm/portfolio/jane-st-commercial.jpg" alt="Jane St commercial" loading="lazy" /><div class="tile-meta"><span class="cat">Commercial</span><strong>8750 Jane St · Vaughan</strong></div></a>
       <a href="#" class="tile fade-in"><img src="https://res.cloudinary.com/dgjwvyjbu/image/upload/q_auto,f_auto,w_900/tpm/portfolio/jane-st-aerial.jpg" alt="Jane St aerial" loading="lazy" /><div class="tile-meta"><span class="cat">Commercial · Aerial</span><strong>8750 Jane St · Vaughan</strong></div></a>
@@ -574,9 +572,13 @@ document.getElementById('navToggle').addEventListener('click', () => mobileMenu.
 document.getElementById('navClose').addEventListener('click', () => mobileMenu.classList.remove('is-open'));
 mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileMenu.classList.remove('is-open')));
 
-// ========== Hero video reveal once loaded ==========
+// ========== Hero video reveal as soon as it has any data ==========
 const heroVideo = document.getElementById('heroVideo');
-heroVideo.addEventListener('canplay', () => heroVideo.classList.add('is-ready'));
+const showVideo = () => heroVideo.classList.add('is-ready');
+heroVideo.addEventListener('loadeddata', showVideo, {once:true});
+heroVideo.addEventListener('playing', showVideo, {once:true});
+// Failsafe: if anything stalls, reveal the video element anyway after 2.5s — beats a frozen blank state
+setTimeout(showVideo, 2500);
 
 // ========== Fade-in on scroll ==========
 const io = new IntersectionObserver((entries) => {
