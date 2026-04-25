@@ -16,7 +16,7 @@
 <link rel="preconnect" href="https://res.cloudinary.com" />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet" />
 
-<link rel="icon" type="image/png" href="https://res.cloudinary.com/dgjwvyjbu/image/upload/c_thumb,w_64,h_64/tpm/brand/logo-dark-bg.png" />
+<link rel="icon" type="image/png" href="https://res.cloudinary.com/dgjwvyjbu/image/upload/c_thumb,w_64,h_64/tpm/brand/logo-light-bg.png" />
 
 <style>
 :root{
@@ -298,9 +298,65 @@ footer{padding:64px 0 36px;background:var(--bg);border-top:1px solid var(--line)
 .fade-in{opacity:0;transform:translateY(20px);transition:opacity .8s ease, transform .8s ease}
 .fade-in.is-visible{opacity:1;transform:translateY(0)}
 
+/* ===================== RECENT WORK ===================== */
+.marquee{
+  position:relative;overflow:hidden;width:100%;
+  margin:clamp(24px,4vw,48px) 0 0;
+  -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 6%,#000 94%,transparent 100%);
+          mask-image:linear-gradient(90deg,transparent 0,#000 6%,#000 94%,transparent 100%);
+}
+.marquee-track{
+  display:flex;gap:14px;width:max-content;
+  animation:marquee-scroll 75s linear infinite;
+}
+@media(min-width:680px){.marquee-track{gap:18px}}
+.marquee:hover .marquee-track{animation-play-state:paused}
+@keyframes marquee-scroll{
+  0%{transform:translateX(0)}
+  100%{transform:translateX(-50%)}
+}
+.marquee-item{
+  flex:0 0 auto;
+  width:clamp(220px,30vw,340px);aspect-ratio:1/1;
+  border-radius:14px;overflow:hidden;
+  background:var(--surface);border:1px solid var(--line);
+  position:relative;
+}
+.marquee-item img,.marquee-item video{
+  width:100%;height:100%;object-fit:cover;display:block;
+}
+
+.featured-reel-wrap{margin-top:clamp(48px,7vw,80px)}
+.featured-reel-label{
+  display:inline-flex;align-items:center;gap:10px;
+  font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--accent-2);
+  margin-bottom:14px;
+}
+.featured-reel-label::before{content:"";width:24px;height:1px;background:var(--accent-2)}
+.featured-reel{
+  position:relative;
+  aspect-ratio:16/9;
+  border-radius:18px;overflow:hidden;
+  border:1px solid var(--line-2);
+  box-shadow:0 30px 80px rgba(0,0,0,.55);
+  background:#000;
+}
+.featured-reel video{width:100%;height:100%;object-fit:cover;display:block}
+
+.recent-work-foot{
+  display:flex;flex-direction:column;align-items:center;text-align:center;gap:18px;
+  margin-top:clamp(40px,5vw,60px);
+}
+.recent-work-tagline{
+  font-size:clamp(15px,1.7vw,17px);color:var(--text-muted);
+  max-width:560px;margin:0;line-height:1.55;
+}
+.recent-work-foot .btn{padding:14px 28px;font-size:15px}
+
 @media(prefers-reduced-motion:reduce){
   *{animation-duration:.01ms!important;transition-duration:.01ms!important}
   .hero-video{display:none}
+  .marquee-track{animation:none}
 }
 </style>
 </head>
@@ -309,11 +365,11 @@ footer{padding:64px 0 36px;background:var(--bg);border-top:1px solid var(--line)
 <!-- ========== NAV ========== -->
 <header class="nav" id="nav">
   <a class="nav-brand" href="#top" aria-label="Toronto Property Media home">
-    <img src="https://res.cloudinary.com/dgjwvyjbu/image/upload/q_auto,f_auto,h_84/tpm/brand/logo-dark-bg.png" alt="Toronto Property Media" />
+    <img src="https://res.cloudinary.com/dgjwvyjbu/image/upload/q_auto,f_auto,h_84/tpm/brand/logo-light-bg.png" alt="Toronto Property Media" />
   </a>
   <nav class="nav-links" aria-label="Primary">
     <a href="#services">Services</a>
-    <a href="#portfolio">Portfolio</a>
+    <a href="https://torontopropertymedia.myportfolio.com/work" target="_blank" rel="noopener">Portfolio</a>
     <a href="book/">Book</a>
     <a href="#contact">Contact</a>
   </nav>
@@ -332,7 +388,7 @@ footer{padding:64px 0 36px;background:var(--bg);border-top:1px solid var(--line)
 <div class="mobile-menu" id="mobileMenu" aria-hidden="true">
   <div class="mobile-menu-head">
     <a class="nav-brand" href="#top">
-      <img src="https://res.cloudinary.com/dgjwvyjbu/image/upload/q_auto,f_auto,h_84/tpm/brand/logo-dark-bg.png" alt="Toronto Property Media" />
+      <img src="https://res.cloudinary.com/dgjwvyjbu/image/upload/q_auto,f_auto,h_84/tpm/brand/logo-light-bg.png" alt="Toronto Property Media" />
     </a>
     <button class="nav-toggle" aria-label="Close menu" id="navClose">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="6" y1="6" x2="18" y2="18"/><line x1="6" y1="18" x2="18" y2="6"/></svg>
@@ -340,7 +396,7 @@ footer{padding:64px 0 36px;background:var(--bg);border-top:1px solid var(--line)
   </div>
   <nav>
     <a href="#services">Services</a>
-    <a href="#portfolio">Portfolio</a>
+    <a href="https://torontopropertymedia.myportfolio.com/work" target="_blank" rel="noopener">Portfolio</a>
     <a href="book/">Book</a>
     <a href="#contact">Contact</a>
   </nav>
@@ -479,28 +535,68 @@ footer{padding:64px 0 36px;background:var(--bg);border-top:1px solid var(--line)
   </div>
 </section>
 
-<!-- ========== PORTFOLIO ========== -->
+<!-- ========== RECENT WORK ========== -->
 <section class="section portfolio" id="portfolio">
   <div class="container">
     <div class="section-head fade-in">
-      <span class="section-eyebrow">Portfolio</span>
-      <h2>Recent work.</h2>
-      <p class="lead">A snapshot of listings shot across Toronto, Vaughan and the GTA — from $700K bungalows to $5M custom builds.</p>
+      <span class="section-eyebrow">Recent Work</span>
+      <h2>From the field.</h2>
+      <p class="lead">A continuous reel of stills and motion from recent shoots across Toronto, Vaughan and the GTA. Updated weekly.</p>
+    </div>
+  </div>
+
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <!-- Loop A -->
+      <div class="marquee-item"><img src="https://res.cloudinary.com/dgjwvyjbu/image/upload/q_auto,f_auto,w_700,h_700,c_fill,g_auto/tpm/portfolio/gregory-scott-front.jpg" alt="" loading="lazy"/></div>
+      <div class="marquee-item"><img src="https://res.cloudinary.com/dgjwvyjbu/image/upload/q_auto,f_auto,w_700,h_700,c_fill,g_auto/tpm/portfolio/imperial-court-sunset.jpg" alt="" loading="lazy"/></div>
+      <div class="marquee-item"><video autoplay muted loop playsinline preload="metadata" poster="https://res.cloudinary.com/dgjwvyjbu/video/upload/so_1,w_700,h_700,c_fill,q_auto,f_jpg/tpm/service-tiles/trim-2.jpg"><source src="https://res.cloudinary.com/dgjwvyjbu/video/upload/q_auto,f_auto,w_700,h_700,c_fill/tpm/service-tiles/trim-2.mp4" type="video/mp4"/></video></div>
+      <div class="marquee-item"><img src="https://res.cloudinary.com/dgjwvyjbu/image/upload/q_auto,f_auto,w_700,h_700,c_fill,g_auto/tpm/portfolio/rodcliffe-modern-front.jpg" alt="" loading="lazy"/></div>
+      <div class="marquee-item"><video autoplay muted loop playsinline preload="metadata" poster="https://res.cloudinary.com/dgjwvyjbu/video/upload/so_1,w_700,h_700,c_fill,q_auto,f_jpg/tpm/service-tiles/trim3.jpg"><source src="https://res.cloudinary.com/dgjwvyjbu/video/upload/q_auto,f_auto,w_700,h_700,c_fill/tpm/service-tiles/trim3.mp4" type="video/mp4"/></video></div>
+      <div class="marquee-item"><img src="https://res.cloudinary.com/dgjwvyjbu/image/upload/q_auto,f_auto,w_700,h_700,c_fill,g_auto/tpm/portfolio/gregory-scott-aerial.jpg" alt="" loading="lazy"/></div>
+      <div class="marquee-item"><img src="https://res.cloudinary.com/dgjwvyjbu/image/upload/q_auto,f_auto,w_700,h_700,c_fill,g_auto/tpm/portfolio/jane-st-aerial.jpg" alt="" loading="lazy"/></div>
+      <div class="marquee-item"><video autoplay muted loop playsinline preload="metadata" poster="https://res.cloudinary.com/dgjwvyjbu/video/upload/so_1,w_700,h_700,c_fill,q_auto,f_jpg/tpm/service-tiles/trim5.jpg"><source src="https://res.cloudinary.com/dgjwvyjbu/video/upload/q_auto,f_auto,w_700,h_700,c_fill/tpm/service-tiles/trim5.mp4" type="video/mp4"/></video></div>
+      <div class="marquee-item"><img src="https://res.cloudinary.com/dgjwvyjbu/image/upload/q_auto,f_auto,w_700,h_700,c_fill,g_auto/tpm/portfolio/viking-condo-aerial.jpg" alt="" loading="lazy"/></div>
+      <div class="marquee-item"><img src="https://res.cloudinary.com/dgjwvyjbu/image/upload/q_auto,f_auto,w_700,h_700,c_fill,g_auto/tpm/portfolio/gregory-scott-living.jpg" alt="" loading="lazy"/></div>
+      <div class="marquee-item"><video autoplay muted loop playsinline preload="metadata" poster="https://res.cloudinary.com/dgjwvyjbu/video/upload/so_1,w_700,h_700,c_fill,q_auto,f_jpg/tpm/service-tiles/trim-6.jpg"><source src="https://res.cloudinary.com/dgjwvyjbu/video/upload/q_auto,f_auto,w_700,h_700,c_fill/tpm/service-tiles/trim-6.mp4" type="video/mp4"/></video></div>
+      <div class="marquee-item"><img src="https://res.cloudinary.com/dgjwvyjbu/image/upload/q_auto,f_auto,w_700,h_700,c_fill,g_auto/tpm/portfolio/gregory-scott-kitchen-1.jpg" alt="" loading="lazy"/></div>
+      <div class="marquee-item"><video autoplay muted loop playsinline preload="metadata" poster="https://res.cloudinary.com/dgjwvyjbu/video/upload/so_1,w_700,h_700,c_fill,q_auto,f_jpg/tpm/service-tiles/trim-7.jpg"><source src="https://res.cloudinary.com/dgjwvyjbu/video/upload/q_auto,f_auto,w_700,h_700,c_fill/tpm/service-tiles/trim-7.mp4" type="video/mp4"/></video></div>
+      <div class="marquee-item"><img src="https://res.cloudinary.com/dgjwvyjbu/image/upload/q_auto,f_auto,w_700,h_700,c_fill,g_auto/tpm/portfolio/rodcliffe-modern-back.jpg" alt="" loading="lazy"/></div>
+
+      <!-- Loop B (duplicate for seamless infinite scroll) -->
+      <div class="marquee-item"><img src="https://res.cloudinary.com/dgjwvyjbu/image/upload/q_auto,f_auto,w_700,h_700,c_fill,g_auto/tpm/portfolio/gregory-scott-front.jpg" alt="" loading="lazy"/></div>
+      <div class="marquee-item"><img src="https://res.cloudinary.com/dgjwvyjbu/image/upload/q_auto,f_auto,w_700,h_700,c_fill,g_auto/tpm/portfolio/imperial-court-sunset.jpg" alt="" loading="lazy"/></div>
+      <div class="marquee-item"><video autoplay muted loop playsinline preload="metadata" poster="https://res.cloudinary.com/dgjwvyjbu/video/upload/so_1,w_700,h_700,c_fill,q_auto,f_jpg/tpm/service-tiles/trim-2.jpg"><source src="https://res.cloudinary.com/dgjwvyjbu/video/upload/q_auto,f_auto,w_700,h_700,c_fill/tpm/service-tiles/trim-2.mp4" type="video/mp4"/></video></div>
+      <div class="marquee-item"><img src="https://res.cloudinary.com/dgjwvyjbu/image/upload/q_auto,f_auto,w_700,h_700,c_fill,g_auto/tpm/portfolio/rodcliffe-modern-front.jpg" alt="" loading="lazy"/></div>
+      <div class="marquee-item"><video autoplay muted loop playsinline preload="metadata" poster="https://res.cloudinary.com/dgjwvyjbu/video/upload/so_1,w_700,h_700,c_fill,q_auto,f_jpg/tpm/service-tiles/trim3.jpg"><source src="https://res.cloudinary.com/dgjwvyjbu/video/upload/q_auto,f_auto,w_700,h_700,c_fill/tpm/service-tiles/trim3.mp4" type="video/mp4"/></video></div>
+      <div class="marquee-item"><img src="https://res.cloudinary.com/dgjwvyjbu/image/upload/q_auto,f_auto,w_700,h_700,c_fill,g_auto/tpm/portfolio/gregory-scott-aerial.jpg" alt="" loading="lazy"/></div>
+      <div class="marquee-item"><img src="https://res.cloudinary.com/dgjwvyjbu/image/upload/q_auto,f_auto,w_700,h_700,c_fill,g_auto/tpm/portfolio/jane-st-aerial.jpg" alt="" loading="lazy"/></div>
+      <div class="marquee-item"><video autoplay muted loop playsinline preload="metadata" poster="https://res.cloudinary.com/dgjwvyjbu/video/upload/so_1,w_700,h_700,c_fill,q_auto,f_jpg/tpm/service-tiles/trim5.jpg"><source src="https://res.cloudinary.com/dgjwvyjbu/video/upload/q_auto,f_auto,w_700,h_700,c_fill/tpm/service-tiles/trim5.mp4" type="video/mp4"/></video></div>
+      <div class="marquee-item"><img src="https://res.cloudinary.com/dgjwvyjbu/image/upload/q_auto,f_auto,w_700,h_700,c_fill,g_auto/tpm/portfolio/viking-condo-aerial.jpg" alt="" loading="lazy"/></div>
+      <div class="marquee-item"><img src="https://res.cloudinary.com/dgjwvyjbu/image/upload/q_auto,f_auto,w_700,h_700,c_fill,g_auto/tpm/portfolio/gregory-scott-living.jpg" alt="" loading="lazy"/></div>
+      <div class="marquee-item"><video autoplay muted loop playsinline preload="metadata" poster="https://res.cloudinary.com/dgjwvyjbu/video/upload/so_1,w_700,h_700,c_fill,q_auto,f_jpg/tpm/service-tiles/trim-6.jpg"><source src="https://res.cloudinary.com/dgjwvyjbu/video/upload/q_auto,f_auto,w_700,h_700,c_fill/tpm/service-tiles/trim-6.mp4" type="video/mp4"/></video></div>
+      <div class="marquee-item"><img src="https://res.cloudinary.com/dgjwvyjbu/image/upload/q_auto,f_auto,w_700,h_700,c_fill,g_auto/tpm/portfolio/gregory-scott-kitchen-1.jpg" alt="" loading="lazy"/></div>
+      <div class="marquee-item"><video autoplay muted loop playsinline preload="metadata" poster="https://res.cloudinary.com/dgjwvyjbu/video/upload/so_1,w_700,h_700,c_fill,q_auto,f_jpg/tpm/service-tiles/trim-7.jpg"><source src="https://res.cloudinary.com/dgjwvyjbu/video/upload/q_auto,f_auto,w_700,h_700,c_fill/tpm/service-tiles/trim-7.mp4" type="video/mp4"/></video></div>
+      <div class="marquee-item"><img src="https://res.cloudinary.com/dgjwvyjbu/image/upload/q_auto,f_auto,w_700,h_700,c_fill,g_auto/tpm/portfolio/rodcliffe-modern-back.jpg" alt="" loading="lazy"/></div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="featured-reel-wrap fade-in">
+      <span class="featured-reel-label">Featured Reel</span>
+      <div class="featured-reel">
+        <video autoplay muted loop playsinline preload="metadata" poster="https://res.cloudinary.com/dgjwvyjbu/image/upload/q_auto,f_auto,w_1600/tpm/portfolio/gregory-scott-front.jpg">
+          <source src="https://res.cloudinary.com/dgjwvyjbu/video/upload/q_auto,f_auto,w_1600/tpm/hero/showreel.mp4" type="video/mp4"/>
+        </video>
+      </div>
     </div>
 
-    <div class="portfolio-grid">
-      <a href="#" class="tile fade-in"><img src="https://res.cloudinary.com/dgjwvyjbu/image/upload/q_auto,f_auto,w_900/tpm/portfolio/gregory-scott-front.jpg" alt="Gregory Scott Drive" loading="lazy" /><div class="tile-meta"><span class="cat">Exterior · Twilight</span><strong>Gregory Scott Dr · Vaughan</strong></div></a>
-      <a href="#" class="tile fade-in"><img src="https://res.cloudinary.com/dgjwvyjbu/image/upload/q_auto,f_auto,w_900/tpm/portfolio/imperial-court-sunset.jpg" alt="Imperial Court" loading="lazy" /><div class="tile-meta"><span class="cat">Exterior · Sunset</span><strong>Imperial Court · Vaughan</strong></div></a>
-      <a href="#" class="tile fade-in"><img src="https://res.cloudinary.com/dgjwvyjbu/image/upload/q_auto,f_auto,w_900/tpm/portfolio/rodcliffe-modern-front.jpg" alt="Rodcliffe Road front" loading="lazy" /><div class="tile-meta"><span class="cat">Exterior · Twilight</span><strong>Rodcliffe Rd · Tottenham</strong></div></a>
-      <a href="#" class="tile fade-in"><img src="https://res.cloudinary.com/dgjwvyjbu/image/upload/q_auto,f_auto,w_900/tpm/portfolio/rodcliffe-modern-back.jpg" alt="Rodcliffe Road back" loading="lazy" /><div class="tile-meta"><span class="cat">Exterior · Twilight</span><strong>Rodcliffe Rd · Tottenham</strong></div></a>
-      <a href="#" class="tile fade-in"><img src="https://res.cloudinary.com/dgjwvyjbu/image/upload/q_auto,f_auto,w_900/tpm/portfolio/viking-condo-aerial.jpg" alt="Viking Lane aerial" loading="lazy" /><div class="tile-meta"><span class="cat">Aerial</span><strong>Viking Ln · Etobicoke</strong></div></a>
-      <a href="#" class="tile fade-in"><img src="https://res.cloudinary.com/dgjwvyjbu/image/upload/q_auto,f_auto,w_900/tpm/portfolio/gregory-scott-aerial.jpg" alt="Gregory Scott aerial" loading="lazy" /><div class="tile-meta"><span class="cat">Aerial</span><strong>Gregory Scott Dr · Vaughan</strong></div></a>
-      <a href="#" class="tile fade-in"><img src="https://res.cloudinary.com/dgjwvyjbu/image/upload/q_auto,f_auto,w_900/tpm/portfolio/gregory-scott-kitchen-1.jpg" alt="Gregory Scott kitchen" loading="lazy" /><div class="tile-meta"><span class="cat">Interior · Kitchen</span><strong>Gregory Scott Dr · Vaughan</strong></div></a>
-      <a href="#" class="tile fade-in"><img src="https://res.cloudinary.com/dgjwvyjbu/image/upload/q_auto,f_auto,w_900/tpm/portfolio/gregory-scott-kitchen-2.jpg" alt="Gregory Scott kitchen alt" loading="lazy" /><div class="tile-meta"><span class="cat">Interior · Kitchen</span><strong>Gregory Scott Dr · Vaughan</strong></div></a>
-      <a href="#" class="tile fade-in"><img src="https://res.cloudinary.com/dgjwvyjbu/image/upload/q_auto,f_auto,w_900/tpm/portfolio/gregory-scott-living.jpg" alt="Gregory Scott living" loading="lazy" /><div class="tile-meta"><span class="cat">Interior · Living</span><strong>Gregory Scott Dr · Vaughan</strong></div></a>
-      <a href="#" class="tile fade-in"><img src="https://res.cloudinary.com/dgjwvyjbu/image/upload/q_auto,f_auto,w_900/tpm/portfolio/gregory-scott-formal.jpg" alt="Gregory Scott formal living" loading="lazy" /><div class="tile-meta"><span class="cat">Interior · Formal</span><strong>Gregory Scott Dr · Vaughan</strong></div></a>
-      <a href="#" class="tile fade-in"><img src="https://res.cloudinary.com/dgjwvyjbu/image/upload/q_auto,f_auto,w_900/tpm/portfolio/jane-st-commercial.jpg" alt="Jane St commercial" loading="lazy" /><div class="tile-meta"><span class="cat">Commercial</span><strong>8750 Jane St · Vaughan</strong></div></a>
-      <a href="#" class="tile fade-in"><img src="https://res.cloudinary.com/dgjwvyjbu/image/upload/q_auto,f_auto,w_900/tpm/portfolio/jane-st-aerial.jpg" alt="Jane St aerial" loading="lazy" /><div class="tile-meta"><span class="cat">Commercial · Aerial</span><strong>8750 Jane St · Vaughan</strong></div></a>
+    <div class="recent-work-foot fade-in">
+      <p class="recent-work-tagline">Every shoot we book lands here. New listings, new reels — week after week.</p>
+      <a class="btn btn-primary" href="https://torontopropertymedia.myportfolio.com/work" target="_blank" rel="noopener">
+        View Full Portfolio
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg>
+      </a>
     </div>
   </div>
 </section>
@@ -522,7 +618,7 @@ footer{padding:64px 0 36px;background:var(--bg);border-top:1px solid var(--line)
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <img src="https://res.cloudinary.com/dgjwvyjbu/image/upload/q_auto,f_auto,h_100/tpm/brand/logo-dark-bg.png" alt="Toronto Property Media" />
+        <img src="https://res.cloudinary.com/dgjwvyjbu/image/upload/q_auto,f_auto,h_100/tpm/brand/logo-light-bg.png" alt="Toronto Property Media" />
         <p>Cinematic real estate media for Toronto's top agents. Every listing, the one buyers remember.</p>
       </div>
       <div class="footer-col">
@@ -538,7 +634,7 @@ footer{padding:64px 0 36px;background:var(--bg);border-top:1px solid var(--line)
       <div class="footer-col">
         <h4>Company</h4>
         <ul>
-          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="https://torontopropertymedia.myportfolio.com/work" target="_blank" rel="noopener">Portfolio</a></li>
           <li><a href="book/">Book</a></li>
           <li><a href="mailto:info@torontopropertymedia.ca">Contact</a></li>
         </ul>
