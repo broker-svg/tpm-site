@@ -230,7 +230,17 @@ h1,h2,h3,h4{font-family:'Manrope',sans-serif;font-weight:700;line-height:1.1;let
 .service-badge svg{width:14px;height:14px;color:#fff}
 
 /* ===================== PORTFOLIO ===================== */
-.portfolio{background:var(--bg-2)}
+.portfolio{
+  background:linear-gradient(135deg,#0c1220 0%,#172040 100%);
+  position:relative;overflow:hidden;
+}
+.portfolio::before{
+  content:"";position:absolute;inset:0;pointer-events:none;z-index:0;
+  background:
+    radial-gradient(circle at 18% 25%, rgba(90,158,255,.12) 0%, transparent 50%),
+    radial-gradient(circle at 82% 75%, rgba(163,211,255,.08) 0%, transparent 50%);
+}
+.portfolio > *{position:relative;z-index:1}
 .portfolio-grid{
   display:grid;grid-template-columns:1fr;gap:12px;
 }
@@ -299,15 +309,9 @@ footer{padding:64px 0 36px;background:var(--bg);border-top:1px solid var(--line)
 .fade-in.is-visible{opacity:1;transform:translateY(0)}
 
 /* ===================== RECENT WORK ===================== */
-.marquee-band{
-  background:var(--brand-navy);
-  padding:clamp(32px,5vw,56px) 0;
-  margin-top:clamp(28px,4vw,48px);
-  border-top:1px solid rgba(255,255,255,.06);
-  border-bottom:1px solid rgba(255,255,255,.06);
-}
 .marquee{
   position:relative;overflow:hidden;width:100%;
+  margin:clamp(28px,4vw,48px) 0 0;
   -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 6%,#000 94%,transparent 100%);
           mask-image:linear-gradient(90deg,transparent 0,#000 6%,#000 94%,transparent 100%);
 }
@@ -551,7 +555,6 @@ footer{padding:64px 0 36px;background:var(--bg);border-top:1px solid var(--line)
     </div>
   </div>
 
-  <div class="marquee-band">
   <div class="marquee" aria-hidden="true">
     <div class="marquee-track">
       <!-- Loop A -->
@@ -586,7 +589,6 @@ footer{padding:64px 0 36px;background:var(--bg);border-top:1px solid var(--line)
       <div class="marquee-item"><video autoplay muted loop playsinline preload="metadata" poster="https://res.cloudinary.com/dgjwvyjbu/video/upload/so_1,w_700,h_700,c_fill,q_auto,f_jpg/tpm/service-tiles/trim-7.jpg"><source src="https://res.cloudinary.com/dgjwvyjbu/video/upload/q_auto,f_auto,w_700,h_700,c_fill/tpm/service-tiles/trim-7.mp4" type="video/mp4"/></video></div>
       <div class="marquee-item"><img src="https://res.cloudinary.com/dgjwvyjbu/image/upload/q_auto,f_auto,w_700,h_700,c_fill,g_auto/tpm/portfolio/rodcliffe-modern-back.jpg" alt="" loading="lazy"/></div>
     </div>
-  </div>
   </div>
 
   <div class="container">
